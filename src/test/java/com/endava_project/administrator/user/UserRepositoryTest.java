@@ -37,4 +37,18 @@ public class UserRepositoryTest {
         User savedUser = userRepository.save(userX);
         assertThat(savedUser.getId()).isGreaterThan(0);
     }
+
+    @Test
+    public void testCreateUserWithTwoRoles() {
+        User userY = new User("Dan", "Show", "danshowpassword", "dan-show@gmai.com", 1234123);
+
+        Role moderatorRole = new Role(1); // add moderator role
+        Role sellerRole = new Role(4); // add seller role
+
+        userY.addRole(moderatorRole);
+        userY.addRole(sellerRole);
+
+        User savedUser = userRepository.save(userY);
+        assertThat(savedUser.getId()).isGreaterThan(0);
+    }
 }

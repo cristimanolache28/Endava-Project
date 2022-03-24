@@ -4,6 +4,7 @@ import com.sun.istack.NotNull;
 import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "roles")
@@ -28,6 +29,10 @@ public class Role {
     // constructor for initialize just necessary field (String name)
     public Role(String name) {
         this.name = name;
+    }
+
+    public Role(Integer id) {
+        this.id = id;
     }
 
     // constructor asked for Hibernate
@@ -56,5 +61,18 @@ public class Role {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Role role = (Role) o;
+        return Objects.equals(id, role.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }
