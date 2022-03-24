@@ -63,17 +63,13 @@ public class UserRepositoryTest {
 
     @Test
     public void testGetUserById() {
-//        List<User> users = userRepository.findAll();
-//        users.stream()
-//                .filter(user -> user.getId() == 2)
-//                .findFirst()
-//                .get();
         User user = userRepository.findById(1).get();
         System.out.println(user);
         assertThat(user).isNotNull();
     }
 
-    @Test void testUpdateUser() {
+    @Test
+    public void testUpdateUser() {
         User user = userRepository.findById(1).get();
         user.setFirstName("Julian");
         user.setLastName("Ford");
