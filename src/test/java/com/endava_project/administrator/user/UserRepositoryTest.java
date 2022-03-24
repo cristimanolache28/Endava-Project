@@ -79,4 +79,11 @@ public class UserRepositoryTest {
         user.setAge(31);
         userRepository.save(user);
     }
+
+    @Test
+    public void testDeleteUserById() {
+        User user = userRepository.findById(9).get();
+        userRepository.delete(user);
+    }
+
 }
