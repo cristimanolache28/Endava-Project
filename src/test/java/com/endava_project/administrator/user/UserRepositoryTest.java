@@ -71,6 +71,16 @@ public class UserRepositoryTest {
         User user = userRepository.findById(1).get();
         System.out.println(user);
         assertThat(user).isNotNull();
+    }
 
+    @Test void testUpdateUser() {
+        User user = userRepository.findById(1).get();
+        user.setFirstName("Julian");
+        user.setLastName("Ford");
+        user.setPassword("newPassword");
+        user.setEmail("newEmail@.com");
+        user.setPhoneNumber(12321);
+        user.setAge(31);
+        userRepository.save(user);
     }
 }
