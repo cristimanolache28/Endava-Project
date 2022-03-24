@@ -86,4 +86,14 @@ public class UserRepositoryTest {
         userRepository.delete(user);
     }
 
+    // 1 - administrator, 2 - user, 3 - admin, 4 - seller, 5 - customer
+    @Test
+    public void testDeleteUserRole() {
+        User user = userRepository.findById(8).get();
+        Role actualRole = new Role(1);
+        user.getRoles().remove(actualRole);
+        userRepository.save(user);
+    }
+
+
 }
