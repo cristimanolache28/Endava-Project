@@ -95,5 +95,20 @@ public class UserRepositoryTest {
         userRepository.save(user);
     }
 
+    @Test
+    public void testUpdateUserRoles() {
+        User user = userRepository.findById(8).get();
+        // delete actual role
+        Role actualRole = new Role(5);
+        user.getRoles().remove(actualRole);
+
+        // add new role for user
+        Role sellerRole = new Role(4);
+        user.addRole(sellerRole);
+
+        // save new role
+        userRepository.save(user);
+    }
+
 
 }
