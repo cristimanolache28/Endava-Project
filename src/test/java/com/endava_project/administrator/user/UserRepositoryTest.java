@@ -11,6 +11,8 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.annotation.Commit;
 import org.springframework.test.annotation.Rollback;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJpaTest
@@ -50,5 +52,12 @@ public class UserRepositoryTest {
 
         User savedUser = userRepository.save(userY);
         assertThat(savedUser.getId()).isGreaterThan(0);
+    }
+
+    @Test
+    public void testGetAllUsers() {
+        List<User> listUsers =  userRepository.findAll();
+        listUsers.stream()
+                .forEach(System.out::println);
     }
 }

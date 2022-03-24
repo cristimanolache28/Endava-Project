@@ -142,4 +142,17 @@ public class User {
     public void addRole(Role role) {
         this.roles.add(role);
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", phoneNumber=" + phoneNumber +
+                ", age=" + age +
+                ", enable=" + enable +
+                ", role = " + roles +
+                '}';
+    }
 }
