@@ -60,4 +60,17 @@ public class UserRepositoryTest {
         listUsers.stream()
                 .forEach(System.out::println);
     }
+
+    @Test
+    public void testGetUserById() {
+//        List<User> users = userRepository.findAll();
+//        users.stream()
+//                .filter(user -> user.getId() == 2)
+//                .findFirst()
+//                .get();
+        User user = userRepository.findById(1).get();
+        System.out.println(user);
+        assertThat(user).isNotNull();
+
+    }
 }
