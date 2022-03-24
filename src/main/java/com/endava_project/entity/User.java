@@ -32,17 +32,19 @@ public class User {
     @Column(name = "age", length = 2, nullable = true)
     private int age;
 
-    @ManyToMany
-    @JoinTable(
-            name = "users_role",
-            joinColumns = @JoinColumn(name = "user_id"), // foreign key referencing back the entity table
-            inverseJoinColumns = @JoinColumn(name = "role_id") // foreign key referencing the target entity
-    )
-    private Set<Role> roles = new HashSet<>();
-
     private boolean enable;
 //    private String photos;
 //    private LocalDateTime register;
+
+    // create intermediate table
+    @ManyToMany
+    @JoinTable(
+            name = "users_role", // table name
+            joinColumns = @JoinColumn(name = "user_id"), // foreign key referencing back the entity table
+            inverseJoinColumns = @JoinColumn(name = "role_id") // foreign key referencing the target entity
+    )
+    // I am using a collection for implementing many-to-many between user and role
+    private Set<Role> roles = new HashSet<>();
 
 
     public User(String firstName, String lastName, String password, String email, int phoneNumber, int age) {

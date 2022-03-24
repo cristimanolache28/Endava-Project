@@ -8,13 +8,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
+import org.springframework.test.annotation.Commit;
 import org.springframework.test.annotation.Rollback;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJpaTest
+// Don't replace the application default DataSource.
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-@Rollback(false)
+// Whether the test-managed transaction should be rolled back after the test method has completed.
+//@Rollback(false)
+// As of Spring Framework 4.2, @Commit can be used as direct replacement for @Rollback(false).
+@Commit
 public class UserRepositoryTest {
 
     @Autowired
@@ -26,8 +31,7 @@ public class UserRepositoryTest {
     @Test
     public void testCreateUser() {
         Role addAdminRole = entityManager.find(Role.class, 1);
-        entityManager.find(Role.class, 1);
-        User userX = new User("Manoalche", "Cristi", "password", "cristimanoalche@gmail.com", 321412);
+        User userX = new User("Luis", "Cooper", "luispassword", "luiz-cooper@yahoo.com", 5214412);
         userX.addRole(addAdminRole);
 
         User savedUser = userRepository.save(userX);

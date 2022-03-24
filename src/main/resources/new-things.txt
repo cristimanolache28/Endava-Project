@@ -1,4 +1,4 @@
-@Column(nullable = false) - is a part JPA specification. This annotation olny add a not null constraint to the database coulmn, if
+@Column(nullable = false) - is a part JPA specification. This annotation only add a not null constraint to the database coulmn, if
 the Hibernate creates the database definitions.
 
 @NotNull - is a part of the BeanValidation specification. It tells your Bean Validation implementation to check that the attribute is
@@ -10,3 +10,9 @@ not null. If the validation fails, Hibernate will not execute any SQL statment.
 exists between customers and products: customers can purchase various products, and products can be purchased by many customers.
 
 documentation -> https://docs.jboss.org/hibernate/core/3.6/reference/en-US/html_single/
+
+JPA (Java Persistence API)
+
+The TestEntityManager provides helper methods to e.g. do a persist/flush/find operation (flush the in-memory persistence context and read the same entity from the database)
+with a single-liner. The TestEntityManager is never mandatory.
+
