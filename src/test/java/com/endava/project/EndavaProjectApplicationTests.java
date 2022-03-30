@@ -1,4 +1,4 @@
-package com.endava_project;
+package com.endava.project;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

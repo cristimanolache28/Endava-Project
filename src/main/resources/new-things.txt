@@ -16,3 +16,8 @@ JPA (Java Persistence API)
 The TestEntityManager provides helper methods to e.g. do a persist/flush/find operation (flush the in-memory persistence context and read the same entity from the database)
 with a single-liner. The TestEntityManager is never mandatory.
 
+
+@RestController annotation returns the json from the method not HTML or JSP. It is the combination of @Controller and @ResponseBody in one. The main
+purpose of @RestController is to create RESTful web services. For returning html or jsp, simply annotated the controller class with @Controller.
+When we use spring as SpringMVC - @Controller
+When we use spring as SpringRESTfull Web Service - @RestController

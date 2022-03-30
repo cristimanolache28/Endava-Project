@@ -1,15 +1,14 @@
-package com.endava_project.administrator.user;
+package com.endava.project.administrator.user;
 
-import com.endava_project.administrator.repository.UserRepository;
-import com.endava_project.entity.Role;
-import com.endava_project.entity.User;
+import com.endava.project.administrator.entity.Role;
+import com.endava.project.user.entity.User;
+import com.endava.project.user.repository.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.annotation.Commit;
-import org.springframework.test.annotation.Rollback;
 
 import java.util.List;
 
@@ -42,7 +41,7 @@ public class UserRepositoryTest {
 
     @Test
     public void testCreateUserWithTwoRoles() {
-        User userY = new User("Dan", "Show", "danshowpassword", "dan-show@gmai.com", 1234123);
+        User userY = new User("Jaycee", "Show", "jaine@yahoo.com", "jayceeshow@gmai.com", 42121321);
 
         Role moderatorRole = new Role(1); // add moderator role
         Role sellerRole = new Role(4); // add seller role

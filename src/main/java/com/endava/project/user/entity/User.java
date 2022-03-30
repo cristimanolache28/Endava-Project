@@ -1,8 +1,8 @@
-package com.endava_project.entity;
+package com.endava.project.user.entity;
+
+import com.endava.project.administrator.entity.Role;
 
 import javax.persistence.*;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -32,6 +32,9 @@ public class User {
     @Column(name = "age", length = 2, nullable = true)
     private int age;
 
+//    @Column(name = "gender", length = 20, nullable = true)
+//    private String gender;
+
     private boolean enable;
 //    private String photos;
 //    private LocalDateTime register;
@@ -46,6 +49,15 @@ public class User {
     // I am using a collection for implementing many-to-many between user and role
     private Set<Role> roles = new HashSet<>();
 
+    public User(String firstName, String lastName, String password, String email, int phoneNumber, int age, boolean enable) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.password = password;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.age = age;
+        this.enable = enable;
+    }
 
     public User(String firstName, String lastName, String password, String email, int phoneNumber, int age) {
         this.firstName = firstName;

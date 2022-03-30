@@ -1,7 +1,4 @@
-package com.endava_project.entity;
-
-import com.sun.istack.NotNull;
-import org.springframework.validation.annotation.Validated;
+package com.endava.project.administrator.entity;
 
 import javax.persistence.*;
 import java.util.Objects;
@@ -63,12 +60,17 @@ public class Role {
         this.description = description;
     }
 
+//    @Override
+//    public String toString() {
+//        return "Role{" +
+//                "name='" + name + '\'' +
+//                ", description='" + description + '\'' +
+//                '}';
+//    }
+
     @Override
     public String toString() {
-        return "Role{" +
-                "name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                '}';
+        return this.name;
     }
 
     @Override
@@ -83,4 +85,5 @@ public class Role {
     public int hashCode() {
         return Objects.hash(id);
     }
+
 }

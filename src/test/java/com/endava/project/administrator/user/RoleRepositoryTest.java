@@ -1,7 +1,7 @@
-package com.endava_project.administrator.user;
+package com.endava.project.administrator.user;
 
-import com.endava_project.administrator.repository.RoleRepository;
-import com.endava_project.entity.Role;
+import com.endava.project.administrator.repository.RoleRepository;
+import com.endava.project.administrator.entity.Role;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;

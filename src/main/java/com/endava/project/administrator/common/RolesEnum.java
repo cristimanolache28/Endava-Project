@@ -1,4 +1,4 @@
-package com.endava_project.administrator.common;
+package com.endava.project.administrator.common;
 
 public enum RolesEnum {
     ADMINISTRATOR,
