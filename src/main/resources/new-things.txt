@@ -21,3 +21,7 @@ with a single-liner. The TestEntityManager is never mandatory.
 purpose of @RestController is to create RESTful web services. For returning html or jsp, simply annotated the controller class with @Controller.
 When we use spring as SpringMVC - @Controller
 When we use spring as SpringRESTfull Web Service - @RestController
+
+
+The UserDetailsService is a core interface in Spring Security framework, which is used to retrieve the user’s authentication and authorization information.
+Stores a String representation of an authority granted to the Authentication object.

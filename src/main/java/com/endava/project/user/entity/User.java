@@ -40,7 +40,7 @@ public class User {
 //    private LocalDateTime register;
 
     // create intermediate table
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "users_role", // table name
             joinColumns = @JoinColumn(name = "user_id"), // foreign key referencing back the entity table

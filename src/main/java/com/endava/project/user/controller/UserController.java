@@ -17,7 +17,7 @@ import java.util.List;
 // automatically serialized into JSON and passed back into the HttpResponse object.
 //@RestController
 @Controller
-@RequestMapping(value = "/api/users")
+@RequestMapping(value = "/users")
 //@RequiredArgsConstructor TODO
 public class UserController {
 
@@ -67,9 +67,8 @@ public class UserController {
             redirectAttributes.addFlashAttribute("message", e.getMessage());
             return "redirect:/users";
         }
-
-
     }
+
 
 
 }

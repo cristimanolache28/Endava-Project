@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/api/v2/users")
+@RequestMapping(value = "/api/users")
 public class UserRestController {
 
     // Tells the app context to inject an instance of UserServiceImpl here
