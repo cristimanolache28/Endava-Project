@@ -1,6 +1,6 @@
 package com.endava.project.administrator.user;
 
-import com.endava.project.administrator.entity.Role;
+import com.endava.project.user.entity.Role;
 import com.endava.project.user.entity.User;
 import com.endava.project.user.repository.UserRepository;
 import org.junit.jupiter.api.Test;

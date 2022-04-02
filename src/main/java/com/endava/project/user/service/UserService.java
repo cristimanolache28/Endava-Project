@@ -1,6 +1,6 @@
 package com.endava.project.user.service;
 
-import com.endava.project.administrator.entity.Role;
+import com.endava.project.user.entity.Role;
 import com.endava.project.user.entity.User;
 import com.endava.project.user.exception.UserNotFoundException;
 
@@ -19,5 +19,9 @@ public interface UserService {
     User updateUser(User user, Integer id);
 
     void deleteUser(Integer id) throws UserNotFoundException;
+
+    User getByEmail(String email);
+
+    User updateAccountDetails(User updateUser);
 
 }

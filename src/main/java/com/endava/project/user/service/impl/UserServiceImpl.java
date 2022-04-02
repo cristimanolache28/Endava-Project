@@ -1,7 +1,7 @@
 package com.endava.project.user.service.impl;
 
-import com.endava.project.administrator.entity.Role;
-import com.endava.project.administrator.repository.RoleRepository;
+import com.endava.project.user.entity.Role;
+import com.endava.project.user.repository.RoleRepository;
 import com.endava.project.user.exception.UserNotFoundException;
 import com.endava.project.user.entity.User;
 import com.endava.project.user.repository.UserRepository;
@@ -11,7 +11,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 @Service
@@ -25,6 +24,10 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+    public User getByEmail(String email) {
+        return userRepository.findUserByEmail(email);
+    }
 
     @Override
     public List<User> listUsers() {
@@ -46,6 +49,23 @@ public class UserServiceImpl implements UserService {
 //        }
 //        userRepository.save(user);
 //    }
+
+    @Override
+    public User updateAccountDetails(User updateUser) {
+        User user = userRepository.findById(updateUser.getId()).get();
+
+        if (!updateUser.getPassword().isEmpty()) {
+            user.setPassword(updateUser.getPassword());
+            encodePassword(user);
+        }
+
+        user.setFirstName(updateUser.getFirstName());
+        user.setLastName(updateUser.getLastName());
+        user.setPhoneNumber(updateUser.getPhoneNumber());
+        user.setAge(updateUser.getAge());
+
+        return userRepository.save(user);
+    }
 
 
     @Override

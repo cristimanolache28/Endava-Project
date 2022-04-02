@@ -1,6 +1,6 @@
 package com.endava.project.security;
 
-import com.endava.project.administrator.entity.Role;
+import com.endava.project.user.entity.Role;
 import com.endava.project.user.entity.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -27,7 +27,6 @@ public class MyUserDetails implements UserDetails {
         for (Role role : roles) {
             authorities.add(new SimpleGrantedAuthority(role.getName()));
         }
-
         return authorities;
     }
 

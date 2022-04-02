@@ -1,4 +1,4 @@
-package com.endava.project.administrator.common;
+package com.endava.project.common;
 
 public enum GenderEnum {
     MASCULIN,

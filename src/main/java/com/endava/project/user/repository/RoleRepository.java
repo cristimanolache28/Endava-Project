@@ -1,6 +1,6 @@
-package com.endava.project.administrator.repository;
+package com.endava.project.user.repository;
 
-import com.endava.project.administrator.entity.Role;
+import com.endava.project.user.entity.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

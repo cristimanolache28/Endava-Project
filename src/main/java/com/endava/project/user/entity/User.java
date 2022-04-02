@@ -1,7 +1,5 @@
 package com.endava.project.user.entity;
 
-import com.endava.project.administrator.entity.Role;
-
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;

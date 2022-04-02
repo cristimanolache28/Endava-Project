@@ -1,4 +1,4 @@
-package com.endava.project.administrator.entity;
+package com.endava.project.user.entity;
 
 import javax.persistence.*;
 import java.util.Objects;
