@@ -1,11 +1,16 @@
 package com.endava.project.user.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table(name = "users")
+@Getter
+@Setter
 public class User {
 
     @Id
@@ -21,10 +26,10 @@ public class User {
     @Column(name = "password", length = 64, nullable = false)
     private String password;
 
-    @Column(name = "email", unique = true, length = 128, nullable = false)
+    @Column(name = "email", length = 128, nullable = false)
     private String email;
 
-    @Column(name = "phone_number", unique = true, length = 15, nullable = false)
+    @Column(name = "phone_number", length = 15, nullable = false)
     private int phoneNumber;
 
     @Column(name = "age", length = 2, nullable = true)

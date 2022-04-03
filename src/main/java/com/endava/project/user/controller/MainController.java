@@ -1,5 +1,6 @@
 package com.endava.project.user.controller;
 
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -14,7 +15,7 @@ public class MainController {
         return "index";
     }
 
-    @GetMapping("/login")
+    @GetMapping(value = "/login", produces = MediaType.APPLICATION_JSON_VALUE)
     public String getLoginPage() {
         return "/login";
     }

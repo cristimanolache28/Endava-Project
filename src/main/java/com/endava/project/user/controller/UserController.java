@@ -4,7 +4,6 @@ import com.endava.project.user.entity.User;
 import com.endava.project.user.entity.Role;
 import com.endava.project.user.exception.UserNotFoundException;
 import com.endava.project.user.service.UserService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
-import java.util.Optional;
 
 // It includes the @Controller and @ResponseBode annotations.
 // @ResponseBody annotation tells a controller that the object returned is
@@ -28,8 +26,8 @@ public class UserController {
 
 
     // handler method to handle list users and return mode and view
-    @GetMapping
-    public String getUsers(Model model) {
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public String getAllUsers(Model model) {
         List<User> listUsers = userService.listUsers();
         model.addAttribute("listUsers", listUsers);
         return "users";
@@ -46,14 +44,17 @@ public class UserController {
         return "user";
     }
 
-    @GetMapping("/info/{id}")
+    @GetMapping(value = "/info/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public String getInfoAboutUsersById(@PathVariable("id") Integer id, Model model) {
+        if (id < 0) {
+            throw new UserNotFoundException("User with id " + id + " doesn't exist.");
+        }
         User user = userService.getUser(id);
         model.addAttribute("user", user);
         return "info_user";
     }
 
-    @GetMapping("/new")
+    @GetMapping(value = "/new", produces = MediaType.APPLICATION_JSON_VALUE)
     public String addNewUser(Model model) {
         List<Role> listRoles = userService.listRoles();
         // create student object to hole student form data
@@ -63,7 +64,7 @@ public class UserController {
         return "create_user";
     }
 
-    @PostMapping("/save")
+    @PostMapping(value = "/save")
     public String saveUser(User user, RedirectAttributes redirectAttributes) {
         System.out.println(user);
         userService.saveUser(user);
@@ -71,16 +72,16 @@ public class UserController {
         return "redirect:/users";
     }
 
-    @GetMapping("/edit/{id}")
+    @GetMapping(value = "/edit/{id}")
     public String editUser(@PathVariable(name = "id") Integer id, Model model, RedirectAttributes redirectAttributes) {
         try {
-            List<Role> listRoles = userService.listRoles();
-            model.addAttribute("listRoles", listRoles);
             User user = userService.getUser(id);
+            List<Role> listRoles = userService.listRoles();
             model.addAttribute("user", user);
+            model.addAttribute("listRoles", listRoles);
             return "update_user";
         } catch (UserNotFoundException e) {
-            redirectAttributes.addFlashAttribute("message", e.getMessage());
+            redirectAttributes.addFlashAttribute("message", "User with id " + id + " doesn't exist");
             return "redirect:/users";
         }
     }
@@ -88,7 +89,7 @@ public class UserController {
     @GetMapping("/delete/{id}")
     public String deleteUserById(@PathVariable("id") Integer id) {
         userService.deleteUser(id);
-        return "users";
+        return "redirect:/users";
     }
 
 }

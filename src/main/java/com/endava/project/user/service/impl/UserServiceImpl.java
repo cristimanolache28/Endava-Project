@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService {
     }
 
 //    @Override
-//    public void save(User user) {
+//    public void saveUser(User user) {
 //        boolean isUpdatingUser = (user.getId() != null);
 //        if (isUpdatingUser) {
 //            User userExisting = userRepository.findById(user.getId()).get();
@@ -50,6 +50,13 @@ public class UserServiceImpl implements UserService {
 //        userRepository.save(user);
 //    }
 
+
+    @Override
+    public User saveUser(User user) {
+        encodePassword(user);
+        return userRepository.save(user);
+    }
+
     @Override
     public User updateAccountDetails(User updateUser) {
         User user = userRepository.findById(updateUser.getId()).get();
@@ -63,14 +70,6 @@ public class UserServiceImpl implements UserService {
         user.setLastName(updateUser.getLastName());
         user.setPhoneNumber(updateUser.getPhoneNumber());
         user.setAge(updateUser.getAge());
-
-        return userRepository.save(user);
-    }
-
-
-    @Override
-    public User saveUser(User user) {
-        encodePassword(user);
         return userRepository.save(user);
     }
 
@@ -81,11 +80,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getUser(Integer id) throws UserNotFoundException {
-//        try {
-//            return userRepository.findById(id).get();
-//        } catch (NoSuchElementException e) {
-//            throw new UserNotFoundException("User with id " + id + " not found.");
-//        }
         return userRepository.findById(id).orElseThrow(
                 () -> new UserNotFoundException("User with id " + id + " not found"));
     }
@@ -119,6 +113,8 @@ public class UserServiceImpl implements UserService {
         String encodePassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodePassword);
     }
+
+
 
     // Stream Api
     public List<String> getNameUserWithHisRoles() {

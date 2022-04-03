@@ -17,11 +17,11 @@ import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
 @RestController
 @RequestMapping(value = "/api/users")
 // generate constructor for all final class's fields
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 public class UserRestController {
 
 //     Tells the app context to inject an instance of UserServiceImpl here
-//    @Autowired
+    @Autowired
     private UserServiceImpl userService;
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
