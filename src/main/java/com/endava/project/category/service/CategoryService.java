@@ -9,4 +9,14 @@ public interface CategoryService {
 
     List<Category> findAll();
 
+    Iterable<Category> listCategoriesUsedInForm();
+
+    void listSubCategory(List<Category> listCategoriesForm, Category parent, int subLevel);
+
+    Category save(Category category);
+
+    Category update(Integer id);
+
+    void delete(Integer id);
+
 }

@@ -19,16 +19,13 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "specialization", length = 30, unique = true, nullable = false)
-    private String Specialization;
-
-    @Column(name = "alias", length = 30, nullable = false)
-    private String alias;
+    @Column(name = "specialization", length = 45,  nullable = false)
+    private String specialization;
 
     @Column(name = "available")
     private boolean available;
 
-    @Column(name = "description", length = 500)
+    @Column(name = "description", length = 700)
     private String description;
 
     // Category can have a parent
@@ -40,6 +37,26 @@ public class Category {
     @OneToMany(mappedBy = "parent")
     private Set<Category> children = new HashSet<>();
 
+    public Category(String specialization) {
+        this.specialization = specialization;
+    }
 
+    public Category(Integer id, String specialization) {
+        this.id = id;
+        this.specialization = specialization;
+    }
 
+    public static Category copyIdAndName(Category category) {
+        Category copyCategory = new Category();
+        copyCategory.setId(category.getId());
+        copyCategory.setSpecialization(category.getSpecialization());
+        return copyCategory;
+    }
+
+    public static Category copyIdAndName(Integer id, String name) {
+        Category copyCategory = new Category();
+        copyCategory.setId(id);
+        copyCategory.setSpecialization(name);
+        return copyCategory;
+    }
 }
