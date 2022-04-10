@@ -58,8 +58,8 @@ public class UserRestController {
 
 
     // Stream Api
-    @GetMapping(value = "/secret", produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<String> getUserWithRoles() {
+    @GetMapping(value = "/roles-user", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<String> getUsersWithRoles() {
         return userService.getNameUserWithHisRoles();
     }
 

@@ -1,0 +1,62 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: html_head">
+    <title>Add New Doctor</title>
+</head>
+<body>
+    <div th:replace="fragments :: bootstrap_dependencies"></div>
+    <div th:replace="fragments :: navbar"></div>
+    <div>
+        <h1 class="text-center font-weight-bold mt-lg-4">Create New Medical Service</h1>
+    </div>
+<!--    <form th:action="@{/services/save}" method="post" class="justify-content-center mt-lg-5"-->
+<!--          style="max-width: 800px; margin: 0 auto" th:object="${medicalService}">-->
+<!--        <input type="hidden" th:field="*{id}">-->
+<!--        &lt;!&ndash; Nav tabs &ndash;&gt;-->
+<!--        <ul class="nav nav-tabs" id="myTab" role="tablist">-->
+<!--            <li class="nav-item">-->
+<!--                <a class="nav-link active" data-toggle="tab" href="#overview" role="tab">Overview</a>-->
+<!--            </li>-->
+<!--            <li class="nav-item">-->
+<!--                <a class="nav-link" data-toggle="tab" href="#description" role="tab">Description</a>-->
+<!--            </li>-->
+<!--            <li class="nav-item">-->
+<!--                <a class="nav-link" data-toggle="tab" href="#details" role="tab">Details</a>-->
+<!--            </li>-->
+<!--        </ul>-->
+
+<!--        &lt;!&ndash; Tab panes &ndash;&gt;-->
+<!--        <div class="tab-content">-->
+<!--            <div class="tab-pane active p-3" id="overview" role="tabpanel">-->
+<!--                <div class="form-group row">-->
+<!--                    <label class="col-sm-2 col-form-label">Medical Service Name:</label>-->
+<!--                    <div class="col-sm-1">-->
+<!--                        <input type="text" class="form-control" th:field="*{medicalService}" required minlength="3" maxlength="35"/>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="form-group row">-->
+<!--                    <label class="col-sm-2 col-form-label">Doctor:</label>-->
+<!--                    <div class="col-sm-1">-->
+<!--                        <select class="form-control" required>-->
+<!--                            <th:block th:field="*{x}" th:each="doctor : ${listDoctors}">-->
+<!--                                <option th:value="${doctor.id}">[[${doctor.firstName}]]</option>-->
+<!--                            </th:block>-->
+<!--                        </select>-->
+<!--                    </div>-->
+<!--            </div>-->
+<!--            <div class="tab-pane" id="description" role="tabpanel">Description</div>-->
+<!--            <div class="tab-pane" id="details" role="tabpanel">Details</div>-->
+<!--        </div>-->
+<!--    </form>-->
+
+    <div>
+        <p class="text-center mt-lg-5">Endava Project - Copyright &copy; Project</p>
+    </div>
+
+    <script type="text/javascript">
+        moduleURL = "[[@{/services}]]"
+    </script>
+</body>
+</html>
+
+

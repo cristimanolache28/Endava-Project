@@ -46,17 +46,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 //        http.cors().and().csrf().disable();
+
         http.authorizeRequests()
-                .mvcMatchers("/users/**").hasAnyAuthority("Admin")
+                .mvcMatchers("/index, /users", "/login", "/doctors", "/categories", "/services", "/users/info/**").permitAll()
+                .mvcMatchers("/users/**").hasAnyAuthority("Admin", "Moderator")
                 .mvcMatchers("/categories/**").hasAnyAuthority("Admin", "Moderator")
+                .mvcMatchers("/doctors/**").hasAnyAuthority("Admin", "Moderator")
+                .mvcMatchers("/services/**").hasAnyAuthority("Admin")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
                     .loginPage("/login")
                     .usernameParameter("email")
                     .permitAll();
-
-
     }
 
     @Override
