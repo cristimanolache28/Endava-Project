@@ -1,0 +1,55 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+>
+<head th:replace="fragments :: html_head">
+
+  <title>Categories</title>
+
+</head>
+<body>
+  <div th:replace="fragments :: bootstrap_dependencies"></div>
+  <div th:replace="fragments :: navbar"></div>
+  <div>
+    <h1 class="text-center font-weight-bold mt-5 text-lg">List of Medical Services</h1>
+  </div>
+
+  <div class="row">
+      <a th:href="@{/categories/new}" class="btn btn-success ml-4 mt-5 ">Add New Category</a>
+      <a class="btn btn-warning ml-2 mt-5 ">Export list in Pdf format</a>
+      <a class="btn btn-warning ml-2 mt-5 ">Export list in Excel format</a>
+  </div>
+  <div class="m-2">
+    <table class="table table-striped table-bordered table-hover table-responsive-xl">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Specialization</th>
+        <th scope="col">Available</th>
+        <th scope="col">Description</th>
+        <th scope="col">Options</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr th:each="category : ${listCategories}">
+            <td th:text="${category.id}"></td>
+            <td th:text="${category.specialization}"></td>
+          <td th:text="${category.available}"></td>
+          <td th:text="${category.description}"></td>
+          <td class="text-center">
+            <a th:href="@{categories/edit/{id} (id=${category.id})}" class="btn btn-primary" title="Edit this specialization">Update</a>
+            <a th:href="@{categories/delete/{id} (id=${category.id})}" class="btn btn-danger" title="Delete this specialization">Delete</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div th:if="message" class="alert alert-success text-center">
+    [[${message}]]
+  </div>
+  <div>
+    <p class="text-center mt-lg-2">Endava Project - Copyright &copy; Project</p>
+  </div>
+</body>
+</html>
+
+

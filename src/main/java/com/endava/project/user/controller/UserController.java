@@ -26,23 +26,30 @@ public class UserController {
 
 
     // handler method to handle list users and return mode and view
+    @GetMapping(value = "/management", produces = MediaType.APPLICATION_JSON_VALUE)
+    public String managementAllUsers(Model model) {
+        List<User> listUsers = userService.listUsers();
+        model.addAttribute("listUsers", listUsers);
+        return "users_management";
+    }
+
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public String getAllUsers(Model model) {
         List<User> listUsers = userService.listUsers();
         model.addAttribute("listUsers", listUsers);
         return "users";
     }
-
-    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public String getUserById(@PathVariable Integer id, Model model) {
-        if (id < 0) {
-            throw new UserNotFoundException("User with id " + id + " doesn't exist.");
-        }
-        User user = userService.getUser(id);
-        model.addAttribute("user", user);
-        // TODO: create UI for this method
-        return "user";
-    }
+//
+//    @GetMapping(value = "/management/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+//    public String getUserById(@PathVariable Integer id, Model model) {
+//        if (id < 0) {
+//            throw new UserNotFoundException("User with id " + id + " doesn't exist.");
+//        }
+//        User user = userService.getUser(id);
+//        model.addAttribute("user", user);
+//        // TODO: create UI for this method
+//        return "user";
+//    }
 
     @GetMapping(value = "/info/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public String getInfoAboutUsersById(@PathVariable("id") Integer id, Model model) {

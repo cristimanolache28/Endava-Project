@@ -12,4 +12,3 @@ public class EndavaProjectApplication {
     }
 }
 
-// application class needs to be top of your package hierarchy, so that Spring can scan sub-packages and find out the other required components (beans).

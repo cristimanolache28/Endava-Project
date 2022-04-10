@@ -24,6 +24,7 @@ public class RoleRepositoryTest {
         Role roleSaved = roleRepository.save(administratorRole);
         assertThat(roleSaved.getId()).isGreaterThan(0);
     }
+
     @Test
     void testCreateModeratorRole() {
         Role moderatorRole = new Role("Moderator", "manage brands, categories," +
@@ -31,6 +32,7 @@ public class RoleRepositoryTest {
         Role roleSaved = roleRepository.save(moderatorRole);
         assertThat(roleSaved.getId()).isGreaterThan(0);
     }
+
     @Test
     void testCreateSellerRole() {
         Role sellerRole = new Role("Seller", "manage product price, customers" +

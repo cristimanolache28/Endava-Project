@@ -46,19 +46,30 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 //        http.cors().and().csrf().disable();
+
         http.authorizeRequests()
+                .mvcMatchers("/index, /users", "/login", "/doctors", "/categories", "/services", "/users/info/**").permitAll()
+                .mvcMatchers("/users/**").hasAnyAuthority("Admin", "Moderator")
+                .mvcMatchers("/categories/**").hasAnyAuthority("Admin", "Moderator")
+                .mvcMatchers("/doctors/**").hasAnyAuthority("Admin", "Moderator")
+                .mvcMatchers("/services/**").hasAnyAuthority("Admin")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
                     .loginPage("/login")
                     .usernameParameter("email")
                     .permitAll();
-
     }
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-         web.ignoring().antMatchers("/images/**", "/js/**", "/webjars/**", "/favicon.ico", "/resources/**", "/error", "/static/fontawesome/all.css");
+         web.ignoring().antMatchers("/images/**",
+                 "/js/**",
+                 "/webjars/**",
+                 "/favicon.ico",
+                 "/resources/**",
+                 "/error",
+                 "/static/fontawesome/all.css");
     }
 }
 
