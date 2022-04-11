@@ -1,6 +1,21 @@
 # Endava-Project!
 
-It's a Spring Boot project unde I have made a Helalth Care System Management.
+I made a Health Care System web application using Spring Boot.
+
+## About project
+
+### Technologies used
+  * **IntelliJ** - development environment (IDE)
+  * **Spring Boot** - Back-End and Front-End (Thymeleaf)
+  * **PostgreSQL** - database
+
+### Spring components used:
+  * **Spring Core** - spring context for manageaning all beans by IoC 
+  * **Spring MVC** - module, view and controller
+  * **Spring Data Access and Integration** - Hibernate and JPA
+  * **Spring Web** - scalable web application.
+  * **Spring Security** - authentication and authorization
+
 
 ## App Architecture - Behind the scenes!
 The application uses a MVC architecture made of more processes.
@@ -8,7 +23,6 @@ The application uses a MVC architecture made of more processes.
 ![Arhitecture MVC diagrama (5)](https://user-images.githubusercontent.com/49694359/162645001-638e7413-7911-41e0-ab1f-9d32fa2f9c63.jpg)
 
 **Steps:**
-  
   * 1 => The user uses a web application.
   * 2 => He does a Rest Api request and sends a method verbs over HTTP protocol to server.
   * 3 => Dispatcher Servlet analyzes the endpoint from URI and forwards the request to Controller Layer for processing.
