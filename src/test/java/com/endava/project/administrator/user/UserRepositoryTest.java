@@ -81,11 +81,16 @@ public class UserRepositoryTest {
 
     @Test
     public void testDeleteUserById() {
+        // check if id is a valid id in db
         User user = userRepository.findById(9).get();
         userRepository.delete(user);
     }
 
-    // 1 - administrator, 2 - user, 3 - admin, 4 - seller, 5 - customer
+    // 1 - administrator
+    // 2 - user
+    // 3 - admin
+    // 4 - seller
+    // 5 - customer
     @Test
     public void testDeleteUserRole() {
         User user = userRepository.findById(8).get();
