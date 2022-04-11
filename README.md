@@ -16,7 +16,7 @@ I made a **Health Care System** web application using **Spring Boot**. Anyone wh
   * **Spring Security** - authentication and authorization
 
 
-## App Architecture - Behind the scenes!
+## App Architecture - Behind the scenes
 The application uses a **MVC architecture** made of more processes.
 
 ![Arhitecture MVC diagrama (5)](https://user-images.githubusercontent.com/49694359/162645001-638e7413-7911-41e0-ab1f-9d32fa2f9c63.jpg)
