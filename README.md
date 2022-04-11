@@ -1,8 +1,8 @@
 # Endava-Project!
-This project was an interesting experience for me becouse I learnd new things and I tried to implement them. 
+This project was an interesting experience for me because I learned new things and I tried to implement them. 
 
 ## About project
-I made a Health Care System web application using Spring Boot. Anyone who wants to access this application has to connect with an account. If someone wants to see al UI's must have admin / administrator role.
+I made a **Health Care System** web application using **Spring Boot**. Anyone who wants to access this application has to connect with an account. If someone wants to see al UI's must have admin / administrator role.
 
 ### Technologies used
   * **IntelliJ** - development environment (IDE)
@@ -23,15 +23,15 @@ The application uses a **MVC architecture** made of more processes.
 
 **Steps:**
   * 1 => The user uses a web application.
-  * 2 => He does a Rest Api request and sends a method verbs over HTTP protocol to server.
-  * 3 => Dispatcher Servlet analyzes the endpoint from URI and forwards the request to Controller Layer for processing.
-  * 4 => Controller Layer takes the request from the user to get or set information. For this it has need of Service Layer. 
-  * 5 => Service Layer has responsibility to do any logic required with the data received by the Controller.
-  * 6 => Repository Layer (Data access object) is implemented to access the database and helps to extend the CRUD operations.
-  * 7 => Finally, the user gets back a view with the content.
+  * 2 => He does a **Rest Api request** and sends a method verbs over ** HTTP protocol** to server.
+  * 3 => **Dispatcher Servlet** analyzes the **endpoint** from **URI** and forwards the request to **Controller Layer** for processing.
+  * 4 => **Controller Layer** takes the request from the user **to get or set information**. For this it has need of Service Layer. 
+  * 5 => **Service Layer** has responsibility to do **any logic required** with the data received by the Controller.
+  * 6 => **Repository Layer** (Data access object) is implemented to **access the database** and helps to extend the CRUD operations.
+  * 7 => Finally, the **user gets back** a view with the content.
 
 ## The web application contains the following UI's:
-**Login page** - it is the place where the user has to input his email and password for using the web app. This page can be accessed by anyone.
+**Login page** - It is the place where the user has to input his email and password for using the web app. This page can be accessed by anyone.
 ![login](https://user-images.githubusercontent.com/49694359/162643877-569c7046-90fa-46d5-915a-349a19bb4a77.JPG)
 
 **Index page** - It's the default page and it can be accessed by anyone has an account.
