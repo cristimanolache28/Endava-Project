@@ -1,9 +1,14 @@
 package com.endava.project.user.entity;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
+@Data // @ToString, @EqualsAndHashCode, @Getter/@Setter, @RequiredArgsConstructor
+@NoArgsConstructor
 @Table(name = "roles")
 public class Role {
 
@@ -31,42 +36,6 @@ public class Role {
     public Role(Integer id) {
         this.id = id;
     }
-
-    // constructor asked for Hibernate
-    public Role() {
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-//    @Override
-//    public String toString() {
-//        return "Role{" +
-//                "name='" + name + '\'' +
-//                ", description='" + description + '\'' +
-//                '}';
-//    }
 
     @Override
     public String toString() {

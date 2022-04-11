@@ -13,7 +13,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
-// It includes the @Controller and @ResponseBode annotations.
+// It includes the @Controller and @ResponseBody annotations.
 // @ResponseBody annotation tells a controller that the object returned is
 // automatically serialized into JSON and passed back into the HttpResponse object.
 //@RestController
@@ -23,7 +23,6 @@ public class UserController {
 
     @Autowired
     private UserService userService;
-
 
     // handler method to handle list users and return mode and view
     @GetMapping(value = "/management", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -39,17 +38,6 @@ public class UserController {
         model.addAttribute("listUsers", listUsers);
         return "users";
     }
-//
-//    @GetMapping(value = "/management/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-//    public String getUserById(@PathVariable Integer id, Model model) {
-//        if (id < 0) {
-//            throw new UserNotFoundException("User with id " + id + " doesn't exist.");
-//        }
-//        User user = userService.getUser(id);
-//        model.addAttribute("user", user);
-//        // TODO: create UI for this method
-//        return "user";
-//    }
 
     @GetMapping(value = "/info/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public String getInfoAboutUsersById(@PathVariable("id") Integer id, Model model) {
