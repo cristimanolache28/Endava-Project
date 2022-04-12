@@ -57,15 +57,30 @@ public class UserRestController {
     }
 
 
-    // Stream Api
+    //=============================Stream API - Controller Layer ===============================
     @GetMapping(value = "/roles-user", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<String> getUsersWithRoles() {
         return userService.getNameUserWithHisRoles();
     }
 
-    @GetMapping("number-of-users")
+    @GetMapping(value = "/number-of-users", produces = MediaType.APPLICATION_JSON_VALUE)
     public int getTotalNumberOfUsers() {
         return userService.getTotalNumberOfUser();
+    }
+
+    @GetMapping(value = "/major-users-number", produces = MediaType.APPLICATION_JSON_VALUE)
+    public int getMajorUsersNumber() {
+        return userService.getMajorUsersNumber();
+    }
+
+    @GetMapping(value = "/find/{firstName}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public User getUserByFirstName(@PathVariable(value = "firstName") String firstName) {
+        return userService.getUserByFirstname(firstName);
+    }
+
+    @GetMapping(value = "/major-users", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<String> getAllMajorUsers() {
+        return userService.displayAllMajorUsers();
     }
 
 

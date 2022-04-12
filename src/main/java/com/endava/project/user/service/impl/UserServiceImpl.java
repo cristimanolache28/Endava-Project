@@ -115,11 +115,10 @@ public class UserServiceImpl implements UserService {
     }
 
 
-
-    // Stream Api
+    //=================Stream API - Service Layer ==========================
     public List<String> getNameUserWithHisRoles() {
-        List<User> listNameAndRoles = userRepository.findAll();
-        return listNameAndRoles.stream()
+        List<User> usersList = userRepository.findAll();
+        return usersList.stream()
                 .map(u -> "Id: " + u.getId() + " " +
                         u.getFirstName() + " " +
                         u.getLastName() + " "
@@ -128,10 +127,40 @@ public class UserServiceImpl implements UserService {
     }
 
     public int getTotalNumberOfUser() {
-        List<User> listUsers = userRepository.findAll();
-        return listUsers.stream()
-                .map(User::getId)
-                .reduce(0, Integer::sum);
+        List<User> usersList = userRepository.findAll();
+        return (int) usersList.stream()
+                .filter(user -> user.getId() != 0)
+                .count();
+    }
+
+    public int getMajorUsersNumber() {
+        List<User> usersList = userRepository.findAll();
+        return (int) usersList.stream()
+                .filter(user -> user.getAge() >= 18)
+                .count();
+    }
+
+    public User getUserByFirstname(String firstName) {
+        List<User> usersList = userRepository.findAll();
+        return usersList.stream()
+                .filter(user -> user.getFirstName().equals(firstName))
+                .findFirst()
+                .orElseThrow(RuntimeException::new);
+    }
+
+    public List<String> displayAllMajorUsers() {
+        List<User> usersList = userRepository.findAll();
+        return usersList.stream()
+                .filter(user -> user.getAge() >= 18)
+                .map(user -> user.getFirstName() + " "
+                        + user.getLastName() + " "
+                        + user.getFirstName() + " "
+                        + user.getEmail() + " "
+                        + user.getPhoneNumber() + " "
+                        + user.getRoles() + " "
+                        + user.getAge() + "\n")
+//                .collect(Collectors.joining());
+                .collect(Collectors.toList());
     }
 
 }
