@@ -1,4 +1,4 @@
-# Endava-Project!
+# Endava-Project
 This project was an interesting experience for me because I learned new things and I tried to implement them. 
 
 ## About project
