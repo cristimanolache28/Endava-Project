@@ -1,8 +1,8 @@
 # Endava-Project!
-This project was an interesting experience for me because I learned new things and I tried to implement them. 
+This project was an interesting experience for me because I have learned new things and I have tried to implement them. 
 
 ## About project
-I made a **Health Care System** web application using **Spring Boot**. Anyone who wants to access this application has to connect with an account. If someone wants to see al UI's must have admin / administrator role.
+I have made a **Health Care System** web application using **Spring Boot**. Anyone who wants to access this application has to connect with an account. If someone wants to see al UI's must have admin / administrator role.
 
 ### Technologies used
   * **IntelliJ** - development environment (IDE)
